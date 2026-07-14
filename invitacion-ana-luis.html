@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>José Luis te invita — Presiona aquí</title>
+  <meta name="description" content="José Luis te invita a su festejo. Presiona aquí para ver todos los detalles y confirmar tu asistencia." />
+  <!-- Open Graph / WhatsApp -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="🎸 José Luis te invita — Presiona aquí" />
+  <meta property="og:description" content="Celebrando a José Luis & recordando con amor a Anita, que en paz descanse 🙏. Sábado 1° de agosto, 17:00 hrs · Salón Rincón del Bosque, Lerma Centro." />
+  <meta property="og:locale"      content="es_MX" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary" />
+  <meta name="twitter:title"       content="🎸 José Luis te invita — Presiona aquí" />
+  <meta name="twitter:description" content="Celebrando a José Luis & recordando con amor a Anita, que en paz descanse 🙏. Sábado 1° de agosto, 17:00 hrs · Salón Rincón del Bosque, Lerma Centro." />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&family=Anton&family=Russo+One&family=Special+Elite&family=Black+Ops+One&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #0A0A0A;
+      --red:     #CC2200;
+      --orange:  #E85D04;
+      --yellow:  #FFD000;
+      --blue:    #1A3A8F;
+      --white:   #F5F5F5;
+      --pink:    #E040FB;
+      --teal:    #00B4D8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Special Elite', serif;
+      overflow-x: hidden;
+      cursor: default;
+    }
+
+    /* ── GRAIN ─────────────────────────────────────────────── */
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: .06;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ── COLLAGE HERO ──────────────────────────────────────── */
+    .collage {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1rem 4rem;
+    }
+
+    /* Background splat layers */
+    .bg-splat {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(1px);
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+    .splat-1 { width: 420px; height: 420px; background: radial-gradient(circle, rgba(204,34,0,.5), transparent 70%); top: -80px; left: -100px; }
+    .splat-2 { width: 500px; height: 300px; background: radial-gradient(circle, rgba(26,58,143,.45), transparent 70%); top: 20%; right: -120px; border-radius: 40%; }
+    .splat-3 { width: 380px; height: 380px; background: radial-gradient(circle, rgba(232,93,4,.35), transparent 70%); bottom: -60px; right: 5%; }
+    .splat-4 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(224,64,251,.2), transparent 70%); bottom: 10%; left: -60px; }
+
+    /* ── FLOATING STICKERS / ELEMENTS ─────────────────────── */
+    .sticker {
+      position: absolute;
+      pointer-events: none;
+      user-select: none;
+      line-height: 1;
+    }
+
+    /* Vinyl record SVG */
+    .vinyl {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    /* ── LIGHTNING BOLT ─ */
+    .bolt {
+      position: absolute;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 9rem;
+      color: var(--yellow);
+      text-shadow: 4px 4px 0 var(--orange), 8px 8px 0 rgba(0,0,0,.4);
+      transform: rotate(-15deg);
+      opacity: .85;
+      pointer-events: none;
+    }
+
+    /* Word stickers */
+    .word-sticker {
+      position: absolute;
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* ── HERO CENTER CONTENT ──────────────────────────────── */
+    .hero-center {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Permanent Marker', cursive;
+      font-size: clamp(.9rem, 3vw, 1.2rem);
+      color: var(--yellow);
+      letter-spacing: .12em;
+      margin-bottom: .8rem;
+      text-shadow: 2px 2px 0 var(--black);
+    }
+
+    .hero-main {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(3.8rem, 14vw, 8rem);
+      line-height: .9;
+      letter-spacing: -.01em;
+      color: var(--white);
+      text-shadow:
+        5px 5px 0 var(--red),
+        10px 10px 0 rgba(0,0,0,.5);
+      margin-bottom: .3rem;
+    }
+
+    .hero-main em {
+      font-style: normal;
+      color: var(--yellow);
+      text-shadow:
+        4px 4px 0 var(--orange),
+        8px 8px 0 rgba(0,0,0,.5);
+      display: block;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--red);
+      color: var(--yellow);
+      font-family: 'Black Ops One', sans-serif;
+      font-size: clamp(.7rem, 2.5vw, .95rem);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      padding: .4rem 1.2rem;
+      margin: .8rem 0;
+      transform: rotate(-1.5deg);
+      box-shadow: 3px 3px 0 var(--black);
+    }
+
+    .hero-tribute {
+      font-family: 'Permanent Marker', cursive;
+      font-size: clamp(.85rem, 2.5vw, 1.05rem);
+      color: var(--teal);
+      line-height: 1.8;
+      text-shadow: 1px 1px 0 var(--black);
+      margin-top: .8rem;
+    }
+
+    /* ── RIPPED TAPE DIVIDER ──────────────────────────────── */
+    .tape {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      overflow: hidden;
+      height: 28px;
+      margin: .5rem 0;
+    }
+    .tape svg { width: 100%; height: 100%; }
+
+    /* ── DETAILS STRIP ────────────────────────────────────── */
+    .details-strip {
+      position: relative;
+      z-index: 10;
+      background: var(--yellow);
+      color: var(--black);
+      padding: .6rem 2rem;
+      text-align: center;
+      transform: rotate(-.6deg);
+      box-shadow: 0 6px 0 rgba(0,0,0,.4);
+      margin: .5rem -2rem;
+    }
+    .details-strip p {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.1rem, 4vw, 1.6rem);
+      letter-spacing: .1em;
+    }
+    .details-strip small {
+      font-family: 'Special Elite', serif;
+      font-size: .78rem;
+      display: block;
+      margin-top: .1rem;
+      opacity: .75;
+    }
+
+    /* ── SETLIST / DETAILS CARD ───────────────────────────── */
+    .setlist {
+      position: relative;
+      z-index: 10;
+      max-width: 600px;
+      width: 100%;
+      margin: 2.5rem auto 0;
+      background: #111;
+      border: 2px solid #333;
+      padding: 2rem 1.8rem;
+      box-shadow: 6px 6px 0 var(--red), 12px 12px 0 rgba(0,0,0,.3);
+    }
+
+    .setlist-header {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: .35em;
+      color: var(--red);
+      border-bottom: 1px solid #333;
+      padding-bottom: .6rem;
+      margin-bottom: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+    }
+    .setlist-header::after { content: ''; flex:1; height:1px; background:#333; }
+
+    .setlist-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: .9rem 0;
+      border-bottom: 1px dashed #222;
+    }
+    .setlist-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .setlist-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      color: var(--red);
+      flex-shrink: 0;
+      width: 2rem;
+      text-align: center;
+      opacity: .6;
+    }
+
+    .setlist-label {
+      font-size: .58rem;
+      font-weight: 500;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: .25rem;
+      font-family: 'Special Elite', serif;
+    }
+
+    .setlist-value {
+      font-family: 'Russo One', sans-serif;
+      font-size: 1rem;
+      color: var(--white);
+      line-height: 1.3;
+    }
+
+    .setlist-sub {
+      font-size: .78rem;
+      color: #888;
+      margin-top: .2rem;
+      font-style: italic;
+    }
+
+    /* ── RSVP SECTION ─────────────────────────────────────── */
+    .rsvp-section {
+      position: relative;
+      z-index: 10;
+      max-width: 600px;
+      width: 100%;
+      margin: 2.5rem auto 0;
+      padding-bottom: 4rem;
+    }
+
+    .rsvp-heading {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(2rem, 7vw, 3.5rem);
+      text-align: center;
+      color: var(--white);
+      text-shadow: 4px 4px 0 var(--red);
+      margin-bottom: .3rem;
+    }
+    .rsvp-heading span { color: var(--yellow); }
+
+    .rsvp-sub {
+      text-align: center;
+      font-size: .82rem;
+      color: #777;
+      margin-bottom: 1.6rem;
+      font-style: italic;
+    }
+
+    .rsvp-box {
+      background: #111;
+      border: 2px solid #333;
+      border-top: 4px solid var(--red);
+      padding: 1.8rem;
+      box-shadow: 5px 5px 0 rgba(204,34,0,.3);
+    }
+
+    .form-row { display: flex; flex-direction: column; gap: .35rem; margin-bottom: 1.1rem; }
+
+    .form-row label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: .16em;
+      color: var(--orange);
+    }
+
+    .form-row input, .form-row select {
+      background: #1A1A1A;
+      border: 1px solid #333;
+      padding: .7rem 1rem;
+      font-family: 'Special Elite', serif;
+      font-size: .88rem;
+      color: var(--white);
+      outline: none;
+      transition: border-color .2s;
+      width: 100%;
+      -webkit-appearance: none;
+    }
+    .form-row input::placeholder { color: #555; font-style: italic; }
+    .form-row input:focus, .form-row select:focus { border-color: var(--red); }
+    .form-row select option { background: #1A1A1A; }
+
+    .btn-rsvp {
+      width: 100%;
+      padding: 1rem;
+      background: var(--red);
+      color: var(--yellow);
+      border: none;
+      font-family: 'Anton', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: .18em;
+      cursor: pointer;
+      transition: background .2s, transform .1s;
+      margin-top: .4rem;
+      text-transform: uppercase;
+    }
+    .btn-rsvp:hover { background: #E02200; }
+    .btn-rsvp:active { transform: scale(.98); }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #25D366;
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Anton', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: .14em;
+      padding: 1rem 2rem;
+      border: none;
+      box-shadow: 4px 4px 0 rgba(0,0,0,.4);
+      transition: background .2s, transform .1s;
+    }
+    .btn-whatsapp:hover { background: #20BA5A; transform: translateY(-2px); }
+    .btn-whatsapp:active { transform: scale(.97); }
+
+    /* ── FOOTER ───────────────────────────────────────────── */
+    footer {
+      position: relative;
+      z-index: 10;
+      background: var(--red);
+      padding: 1.2rem 2rem;
+      text-align: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: .85rem;
+      letter-spacing: .3em;
+      color: var(--yellow);
+    }
+
+    @media (max-width: 480px) {
+      .setlist, .rsvp-section { margin-left: 1rem; margin-right: 1rem; }
+      .setlist { padding: 1.4rem 1rem; }
+      .rsvp-box { padding: 1.2rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- COLLAGE HERO -->
+<section class="collage">
+
+  <!-- background color splats -->
+  <div class="bg-splat splat-1"></div>
+  <div class="bg-splat splat-2"></div>
+  <div class="bg-splat splat-3"></div>
+  <div class="bg-splat splat-4"></div>
+
+  <!-- Vinyl record top-left -->
+  <svg class="vinyl" style="top:2%;left:-3%;width:180px;height:180px;opacity:.55;transform:rotate(-20deg);" viewBox="0 0 200 200" aria-hidden="true">
+    <circle cx="100" cy="100" r="98" fill="#111"/>
+    <circle cx="100" cy="100" r="90" fill="none" stroke="#222" stroke-width="6"/>
+    <circle cx="100" cy="100" r="75" fill="none" stroke="#222" stroke-width="3"/>
+    <circle cx="100" cy="100" r="60" fill="none" stroke="#222" stroke-width="3"/>
+    <circle cx="100" cy="100" r="45" fill="none" stroke="#222" stroke-width="3"/>
+    <circle cx="100" cy="100" r="30" fill="#CC2200"/>
+    <circle cx="100" cy="100" r="12" fill="#111"/>
+    <circle cx="100" cy="100" r="5"  fill="#CC2200"/>
+    <text x="100" y="108" text-anchor="middle" font-family="Arial" font-size="7" fill="#fff" opacity=".6" letter-spacing="2">ROCK &amp; ROLL</text>
+  </svg>
+
+  <!-- Vinyl record bottom-right -->
+  <svg class="vinyl" style="bottom:4%;right:-4%;width:200px;height:200px;opacity:.45;transform:rotate(30deg);" viewBox="0 0 200 200" aria-hidden="true">
+    <circle cx="100" cy="100" r="98" fill="#111"/>
+    <circle cx="100" cy="100" r="85" fill="none" stroke="#1A3A8F" stroke-width="5"/>
+    <circle cx="100" cy="100" r="68" fill="none" stroke="#222" stroke-width="3"/>
+    <circle cx="100" cy="100" r="50" fill="none" stroke="#222" stroke-width="3"/>
+    <circle cx="100" cy="100" r="32" fill="#1A3A8F"/>
+    <circle cx="100" cy="100" r="12" fill="#111"/>
+    <circle cx="100" cy="100" r="5"  fill="#E85D04"/>
+    <text x="100" y="108" text-anchor="middle" font-family="Arial" font-size="7" fill="#fff" opacity=".6" letter-spacing="2">LIVE 2026</text>
+  </svg>
+
+  <!-- Guitar SVG top-right -->
+  <svg class="sticker" style="top:0%;right:2%;width:110px;opacity:.6;transform:rotate(20deg);" viewBox="0 0 80 240" aria-hidden="true">
+    <rect x="35" y="0" width="10" height="120" rx="3" fill="#8B4513"/>
+    <rect x="30" y="10" width="20" height="8"  rx="2" fill="#666"/>
+    <rect x="32" y="5"  width="16" height="6"  rx="1" fill="#555"/>
+    <!-- tuners -->
+    <rect x="25" y="15" width="8" height="4" rx="1" fill="#B8860B"/>
+    <rect x="25" y="23" width="8" height="4" rx="1" fill="#B8860B"/>
+    <rect x="25" y="31" width="8" height="4" rx="1" fill="#B8860B"/>
+    <rect x="47" y="15" width="8" height="4" rx="1" fill="#B8860B"/>
+    <rect x="47" y="23" width="8" height="4" rx="1" fill="#B8860B"/>
+    <rect x="47" y="31" width="8" height="4" rx="1" fill="#B8860B"/>
+    <!-- body -->
+    <ellipse cx="40" cy="175" rx="32" ry="38" fill="#CC2200"/>
+    <ellipse cx="40" cy="155" rx="24" ry="24" fill="#CC2200"/>
+    <ellipse cx="40" cy="175" rx="28" ry="34" fill="#E02200"/>
+    <!-- waist -->
+    <rect x="28" y="145" width="24" height="20" fill="#CC2200"/>
+    <!-- sound hole -->
+    <circle cx="40" cy="170" r="10" fill="#111"/>
+    <circle cx="40" cy="170" r="9"  fill="none" stroke="#B8860B" stroke-width="1.5"/>
+    <!-- bridge -->
+    <rect x="30" y="183" width="20" height="5" rx="1" fill="#5C3317"/>
+    <!-- strings -->
+    <line x1="40" y1="120" x2="35" y2="188" stroke="#ccc" stroke-width=".6" opacity=".8"/>
+    <line x1="40" y1="120" x2="37" y2="188" stroke="#ccc" stroke-width=".6" opacity=".8"/>
+    <line x1="40" y1="120" x2="39" y2="188" stroke="#ccc" stroke-width=".6" opacity=".8"/>
+    <line x1="40" y1="120" x2="41" y2="188" stroke="#ccc" stroke-width=".6" opacity=".8"/>
+    <line x1="40" y1="120" x2="43" y2="188" stroke="#ccc" stroke-width=".6" opacity=".8"/>
+    <line x1="40" y1="120" x2="45" y2="188" stroke="#ccc" stroke-width=".6" opacity=".8"/>
+    <!-- strap pin -->
+    <circle cx="40" cy="213" r="4" fill="#8B4513"/>
+  </svg>
+
+  <!-- Lightning bolt -->
+  <div class="bolt" style="top:8%;left:8%;font-size:7rem;color:#FFD000;transform:rotate(-18deg);opacity:.7;z-index:2;">⚡</div>
+
+  <!-- Stars scattered -->
+  <div class="sticker" style="top:6%;right:28%;font-size:2.5rem;transform:rotate(12deg);opacity:.6;color:var(--yellow);">★</div>
+  <div class="sticker" style="top:18%;left:22%;font-size:1.5rem;transform:rotate(-8deg);opacity:.5;color:var(--orange);">★</div>
+  <div class="sticker" style="bottom:22%;right:12%;font-size:3rem;transform:rotate(25deg);opacity:.5;color:var(--red);">★</div>
+  <div class="sticker" style="bottom:30%;left:8%;font-size:1.8rem;transform:rotate(-20deg);opacity:.55;color:var(--teal);">✦</div>
+
+  <!-- Word stickers scattered -->
+  <div class="word-sticker" style="top:5%;left:28%;font-size:clamp(1.2rem,4vw,2rem);color:var(--red);transform:rotate(-8deg);text-shadow:2px 2px 0 #000;z-index:3;">ROCK</div>
+  <div class="word-sticker" style="top:5%;right:18%;font-size:clamp(.8rem,3vw,1.3rem);color:var(--teal);transform:rotate(6deg);text-shadow:2px 2px 0 #000;z-index:3;">LIVE!</div>
+  <div class="word-sticker" style="bottom:28%;left:5%;font-size:clamp(1rem,3vw,1.5rem);color:var(--yellow);transform:rotate(-14deg);text-shadow:2px 2px 0 var(--red);z-index:3;">🤘</div>
+  <div class="word-sticker" style="bottom:26%;right:6%;font-size:clamp(.7rem,2.5vw,1.1rem);color:var(--orange);transform:rotate(10deg);text-shadow:1px 1px 0 #000;z-index:3;">N' ROLL</div>
+
+  <!-- Microphone SVG left-center -->
+  <svg class="sticker" style="top:35%;left:0%;width:70px;opacity:.5;transform:rotate(-30deg);" viewBox="0 0 60 160" aria-hidden="true">
+    <ellipse cx="30" cy="40" rx="22" ry="36" fill="#333"/>
+    <ellipse cx="30" cy="40" rx="18" ry="32" fill="#444"/>
+    <!-- mesh lines -->
+    <line x1="30" y1="8"  x2="30" y2="72" stroke="#222" stroke-width="1"/>
+    <line x1="12" y1="25" x2="48" y2="25" stroke="#222" stroke-width="1"/>
+    <line x1="10" y1="40" x2="50" y2="40" stroke="#222" stroke-width="1"/>
+    <line x1="12" y1="55" x2="48" y2="55" stroke="#222" stroke-width="1"/>
+    <rect x="24" y="76"  width="12" height="30" fill="#555"/>
+    <rect x="18" y="106" width="24" height="8"  rx="4" fill="#666"/>
+    <line x1="30" y1="114" x2="30" y2="155" stroke="#666" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="30" cy="40" r="20" fill="none" stroke="#B8860B" stroke-width="2" opacity=".5"/>
+  </svg>
+
+  <!-- Broken star / burst  -->
+  <svg class="sticker" style="bottom:10%;left:20%;width:90px;opacity:.4;transform:rotate(15deg);" viewBox="0 0 100 100" aria-hidden="true">
+    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35" fill="var(--yellow)" stroke="var(--orange)" stroke-width="2"/>
+  </svg>
+  <svg class="sticker" style="top:28%;right:3%;width:70px;opacity:.35;transform:rotate(-10deg);" viewBox="0 0 100 100" aria-hidden="true">
+    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35" fill="var(--red)" stroke="#900" stroke-width="2"/>
+  </svg>
+
+  <!-- Peace sign -->
+  <svg class="sticker" style="bottom:15%;right:22%;width:65px;opacity:.35;transform:rotate(20deg);" viewBox="0 0 100 100" aria-hidden="true">
+    <circle cx="50" cy="50" r="46" fill="none" stroke="var(--teal)" stroke-width="5"/>
+    <line x1="50" y1="4"  x2="50" y2="96" stroke="var(--teal)" stroke-width="5"/>
+    <line x1="50" y1="50" x2="10" y2="85" stroke="var(--teal)" stroke-width="5"/>
+    <line x1="50" y1="50" x2="90" y2="85" stroke="var(--teal)" stroke-width="5"/>
+  </svg>
+
+  <!-- Fist / horns emoji big -->
+  <div class="sticker" style="top:42%;right:3%;font-size:clamp(2.5rem,8vw,4rem);transform:rotate(15deg);opacity:.65;z-index:2;">🤘</div>
+  <div class="sticker" style="bottom:18%;left:3%;font-size:clamp(2rem,6vw,3rem);transform:rotate(-10deg);opacity:.6;z-index:2;">🎸</div>
+  <div class="sticker" style="top:60%;left:10%;font-size:clamp(1.5rem,5vw,2.5rem);transform:rotate(8deg);opacity:.5;z-index:2;">🥁</div>
+  <div class="sticker" style="top:62%;right:10%;font-size:clamp(1.5rem,4vw,2.2rem);transform:rotate(-12deg);opacity:.5;z-index:2;">🎤</div>
+
+  <!-- Scratch / diagonal lines aesthetic -->
+  <svg class="sticker" style="top:0;left:0;width:100%;height:100%;opacity:.04;" viewBox="0 0 400 800" preserveAspectRatio="none" aria-hidden="true">
+    <line x1="0" y1="0"   x2="400" y2="800" stroke="white" stroke-width="1.5"/>
+    <line x1="60" y1="0"  x2="460" y2="800" stroke="white" stroke-width=".8"/>
+    <line x1="320" y1="0" x2="-80" y2="800" stroke="white" stroke-width="1"/>
+  </svg>
+
+  <!-- MAIN CONTENT -->
+  <div class="hero-center">
+    <p class="hero-eyebrow">🎸 &nbsp; Una noche legendaria &nbsp; 🎸</p>
+    <h1 class="hero-main">
+      GRAN<br>
+      <em>FESTEJO</em>
+    </h1>
+    <div class="hero-badge">Celebrando a José Luis &amp; recordando con amor a Anita, que en paz descanse 🙏</div>
+    <p class="hero-tribute">
+      Amigos de ley · familia · historias que valen<br>
+      <em style="opacity:.7;">— reunirnos es la mejor manera de celebrar —</em>
+    </p>
+  </div>
+
+  <!-- Ripped tape divider -->
+  <div class="tape" style="margin-top:2rem;">
+    <svg viewBox="0 0 800 28" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,14 Q20,4 40,14 Q60,24 80,14 Q100,4 120,14 Q140,24 160,14 Q180,4 200,14 Q220,24 240,14 Q260,4 280,14 Q300,24 320,14 Q340,4 360,14 Q380,24 400,14 Q420,4 440,14 Q460,24 480,14 Q500,4 520,14 Q540,24 560,14 Q580,4 600,14 Q620,24 640,14 Q660,4 680,14 Q700,24 720,14 Q740,4 760,14 Q780,24 800,14 L800,28 L0,28 Z" fill="#CC2200"/>
+    </svg>
+  </div>
+
+  <!-- Date strip -->
+  <div class="details-strip" style="width:calc(100% + 2rem)">
+    <p>📅 Sábado 1° de Agosto, 2026 — 17:00 hrs</p>
+    <small>Salón Rincón del Bosque · Calle 16 de Septiembre No. 14 · Lerma Centro</small>
+  </div>
+
+</section>
+
+<!-- SETLIST / DETAILS -->
+<section style="background:#0A0A0A; padding: 3rem 1rem;">
+  <div class="setlist">
+    <div class="setlist-header">— Set List del Evento —</div>
+
+    <div class="setlist-row">
+      <div class="setlist-num">01</div>
+      <div>
+        <div class="setlist-label">Fecha</div>
+        <div class="setlist-value">Sábado 1° de Agosto, 2026</div>
+        <div class="setlist-sub">A partir de las 17:00 hrs — la noche manda</div>
+      </div>
+    </div>
+
+    <div class="setlist-row">
+      <div class="setlist-num">02</div>
+      <div>
+        <div class="setlist-label">Venue</div>
+        <div class="setlist-value">Salón Rincón del Bosque</div>
+        <div class="setlist-sub">Residencial Rincón del Bosque · Lerma Centro<br>Calle 16 de Septiembre No. 14</div>
+      </div>
+    </div>
+
+    <div class="setlist-row">
+      <div class="setlist-num">03</div>
+      <div>
+        <div class="setlist-label">El Ambiente</div>
+        <div class="setlist-value">Tarde–noche entre los grandes</div>
+        <div class="setlist-sub">Amigos de siempre · familia · risas · recuerdos</div>
+      </div>
+    </div>
+
+    <div class="setlist-row">
+      <div class="setlist-num">04</div>
+      <div>
+        <div class="setlist-label">Tributo especial</div>
+        <div class="setlist-value">En memoria de Anita — QEPD 🙏</div>
+        <div class="setlist-sub">Con amor eterno · siempre presente entre nosotros</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RSVP WhatsApp -->
+  <div class="rsvp-section" style="padding-top:2.5rem;">
+    <h2 class="rsvp-heading">¿Vas o <span>no vas?</span></h2>
+    <p class="rsvp-sub">Confirma tu lugar directo por WhatsApp — los grandes no fallan.</p>
+
+    <div class="rsvp-box" style="text-align:center;">
+      <p style="font-family:'Special Elite',serif; font-size:.88rem; color:#888; margin-bottom:1.6rem; font-style:italic; line-height:1.7;">
+        Manda un mensaje a José Luis confirmando tu asistencia.<br>
+        ¡Tu presencia es el mejor regalo! 🎸
+      </p>
+      <a
+        href="https://wa.me/5215518350415?text=¡Hola%20José%20Luis!%20Confirmo%20mi%20asistencia%20a%20tu%20festejo%20del%201°%20de%20agosto%20🤘🎸"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-whatsapp"
+      >
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:.5rem;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Presiona aquí para confirmar tu asistencia
+      </a>
+      <p style="margin-top:1.2rem; font-size:.72rem; color:#555; letter-spacing:.08em; font-family:'Special Elite',serif;">
+        José Luis Jiménez Segura &nbsp;·&nbsp; 55 1835 0415
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  🎸 &nbsp; Gran Festejo · 1° Agosto 2026 · Lerma Centro &nbsp; 🤘 &nbsp; Rock & Roll Forever
+</footer>
+</body>
+</html>

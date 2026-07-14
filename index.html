@@ -390,6 +390,41 @@
       color: var(--yellow);
     }
 
+    /* ── HERO PHOTO ──────────────────────────────────────── */
+    .hero-photo-wrap {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 1.2rem;
+    }
+    .hero-photo {
+      width: clamp(140px, 36vw, 200px);
+      height: clamp(140px, 36vw, 200px);
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      border: 5px solid var(--yellow);
+      box-shadow:
+        0 0 0 4px var(--red),
+        0 0 0 8px rgba(255,208,0,.25),
+        6px 6px 0 var(--black);
+      filter: contrast(1.05) saturate(1.1);
+    }
+    .hero-photo-badge {
+      position: absolute;
+      bottom: -8px;
+      right: -10px;
+      background: var(--red);
+      color: var(--yellow);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: .78rem;
+      letter-spacing: .18em;
+      padding: .3rem .7rem;
+      transform: rotate(4deg);
+      box-shadow: 2px 2px 0 var(--black);
+      white-space: nowrap;
+    }
+
     @media (max-width: 480px) {
       .setlist, .rsvp-section { margin-left: 1rem; margin-right: 1rem; }
       .setlist { padding: 1.4rem 1rem; }
@@ -531,6 +566,10 @@
 
   <!-- MAIN CONTENT -->
   <div class="hero-center">
+    <div class="hero-photo-wrap">
+      <img src="img/jose-luis.jpeg" alt="José Luis" class="hero-photo" />
+      <span class="hero-photo-badge">El Mero Mero 🎸</span>
+    </div>
     <p class="hero-eyebrow">🎸 &nbsp; Una noche legendaria &nbsp; 🎸</p>
     <h1 class="hero-main">
       GRAN<br>
